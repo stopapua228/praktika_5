@@ -1,0 +1,25 @@
+=== Случай: без --package
+Команда: python -m src.main -r test_data/repo1.txt -t -o out/graph.png
+--- STDERR ---
+usage: depviz-stage1 [-h] -p PACKAGE -r REPO [-t] -o OUTPUT
+depviz-stage1: error: the following arguments are required: -p/--package
+
+=== Случай: пустой --package
+Команда: python -m src.main -p  -r test_data/repo1.txt -t -o out/graph.png
+--- STDERR ---
+Ошибка: Параметр --package обязателен и не может быть пустым.
+
+=== Случай: repo не url (test_mode=False)
+Команда: python -m src.main -p A -r not_a_url -o out/graph.png
+--- STDERR ---
+Ошибка: --repo должен быть валидным URL (http/https), получено: not_a_url
+
+=== Случай: repo файла нет (test_mode=True)
+Команда: python -m src.main -p A -r test_data/not_exists.txt -t -o out/graph.png
+--- STDERR ---
+Ошибка: --repo должен указывать на существующий файл (тестовый режим): test_data/not_exists.txt
+
+=== Случай: output не .png
+Команда: python -m src.main -p A -r test_data/repo1.txt -t -o out/graph.jpg
+--- STDERR ---
+Ошибка: --output должен оканчиваться на .png

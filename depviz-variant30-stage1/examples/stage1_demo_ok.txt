@@ -1,0 +1,4 @@
+package=A
+repo=test_data/repo1.txt
+test_mode=True
+output_png=out/graph.png
