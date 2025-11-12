@@ -56,6 +56,6 @@ for cmd, title in cases:
     lines.append("")  # пустая строка между блоками
 
 
-# Сохраняю все собранные результаты ошибок в один файл для демонстрации
+# Сохраняю все собранные результаты ошибок в один файл для демонстрациии
 with open(BASE / "examples" / "stage1_demo_errors.txt", "w", encoding="utf-8") as f:
     f.write("\n".join(lines))
